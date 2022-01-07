@@ -57,10 +57,18 @@
       </div>  
     </div>
 
-    <div class="item" data-aos="fade-up" data-aos-offset="800" id="email">
-      <p>예상 가격이 __$ 이상/이하이면 알림을 받습니다. <br>
-      알림을 받을 이메일을 입력해주세요 <br>
-      Email : </p> 
+    <div class="item" data-aos="fade-up" data-aos-offset="800" id="email">      
+        <form action="./subscribe.do" method="post">
+        <p>예상 가격이 
+          <input type="text" id="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>$ 
+          <label class="button upper"><input type="radio" name="cp_item" value="upper" checked="checked"><span>이상</span></label>
+          <label class="button lower"><input type="radio" name="cp_item" value="lower" checked="checked"><span>이하</span></label>
+          이면 알림을 받습니다.<br><br><br>
+          <label for="email_address">알림을 받을 이메일을 입력해주세요 : </label><br><br>
+          <input type="email" id="email_address" name="email_address" placeholder="Email"
+          pattern=".+@globex\.com" required/>
+          <input type="submit" value="OK"> </p> 
+        </form>
     </div>
 
       <!--스크롤 애니메이션 구현-->
